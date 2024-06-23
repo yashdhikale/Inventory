@@ -1,0 +1,281 @@
+/* App.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background: #e9eaec;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.sidebar ul li + li {
+  margin-top: 10px;
+}
+
+.sidebar ul li:hover {
+  background: #495057;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  overflow-y: auto;
+  color: #0c0c0c;
+  margin-left: 20px; 
+}
+
+h1 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="text"].filter {
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: fit-content;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.item-list {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+}
+
+.item-name {
+  margin-right: 10px;
+}
+
+.item-actions {
+  display: flex;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button-container button {
+  margin: 0 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #fefeff;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+button.edit,
+button.remove {
+  margin-left: 10px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+button.edit {
+  background-color: #28a745;
+}
+
+button.remove {
+  background-color: #dc3545;
+}
+
+button.edit:hover {
+  background-color: #218838;
+}
+
+button.remove:hover {
+  background-color: #c82333;
+}
+
+input[type="text"].filter {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: calc(100% - 40px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-container button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+.edit-form {
+  margin-top: 20px;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.edit-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.edit-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="number"] {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.edit-form button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.edit-form button:hover {
+  background-color: #0056b3;
+}
+
+
