@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, setEditMode, updateItem } from '../redux/actions';
@@ -8,7 +6,7 @@ import '../App.css';
 const ItemList = ({ view }) => {
   const dispatch = useDispatch();
   const items = useSelector(state => state.items);
-  const editItemId = useSelector(state => state.editItemId); 
+  const editItemId = useSelector(state => state.editItemId);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -16,6 +14,7 @@ const ItemList = ({ view }) => {
   });
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [showAlert, setShowAlert] = useState(false); // State to control alert display
 
   const handleEdit = (itemId) => {
     dispatch(setEditMode(itemId));
@@ -35,12 +34,11 @@ const ItemList = ({ view }) => {
 
   const handleSave = () => {
     dispatch(updateItem(editItemId, formData));
-   
     setFormData({
       name: '',
       quantity: ''
     });
-    dispatch(setEditMode(null)); 
+    dispatch(setEditMode(null));
   };
 
   const handleRemove = (itemId) => {
@@ -50,9 +48,19 @@ const ItemList = ({ view }) => {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
+  const handleIncrement = (itemId) => {
+    const item = items.find(item => item.id === itemId);
+    dispatch(updateItem(itemId, { ...item, quantity: item.quantity + 1 }));
+  };
+  const handleDecrement = (itemId) => {
+    const item = items.find(item => item.id === itemId);
+    if (item.quantity > 0) {
+      dispatch(updateItem(itemId, { ...item, quantity: item.quantity - 1 }));
+    }
+  };
 
+  
   const filteredItems = view === 'update' ? items : items.filter(item => item.quantity > 0);
-
   const filteredItemsByName = filteredItems.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -69,14 +77,26 @@ const ItemList = ({ view }) => {
         />
       </div>
       <ul>
+      <li className="list-header">
+          <div>Name</div>
+          <div>Quantity</div>
+        </li>
         {filteredItemsByName.map(item => (
-          <li key={item.id}>
-            <div>{item.name}</div>
-            <div>{item.quantity}</div>
+          <li key={item.id} className="list-item">
+                <div className="item-details">
+             <span className="item-name">{item.name}</span>
+             <span className="item-quantity">{item.quantity}</span>
+             </div>
             {view === 'update' && (
               <div className="item-actions">
                 <button className="edit" onClick={() => handleEdit(item.id)}>Edit</button>
                 <button className="remove" onClick={() => handleRemove(item.id)}>Remove</button>
+              </div>
+            )}
+             {view === 'addInventory' && (
+              <div className="item-actions">
+                <button className="increment" onClick={() => handleIncrement(item.id)}>+</button>
+                <button className="decrement" onClick={() => handleDecrement(item.id)}>-</button>
               </div>
             )}
           </li>

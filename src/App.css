@@ -174,7 +174,7 @@ button.remove {
 }
 
 button.edit {
-  background-color: #28a745;
+  background-color: #1c1a24;
 }
 
 button.remove {
@@ -182,7 +182,7 @@ button.remove {
 }
 
 button.edit:hover {
-  background-color: #218838;
+  background-color: #adc8ad;
 }
 
 button.remove:hover {
@@ -265,7 +265,7 @@ input[type="text"].filter {
 
 .edit-form button {
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: #080808;
   color: white;
   border: none;
   border-radius: 4px;
@@ -278,4 +278,85 @@ input[type="text"].filter {
   background-color: #0056b3;
 }
 
+.alert-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1d1d1e;
+  color: rgb(219, 214, 214);
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; 
+}
+.form-container,
+.item-list {
+  width: 100%;
+  max-width: 600px;
+}
 
+.search-container {
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.item-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-list .list-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.item-list .list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.item-actions .edit,
+.item-actions .remove,
+.item-actions .increment,
+.item-actions .decrement {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.item-list .item-name,
+.item-list .item-quantity {
+  margin-right: 55px; 
+}
+
+.item-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.edit-form {
+  margin-top: 20px;
+}
+
+.item-list .list-item > div {
+  margin-bottom: 5px;
+}
+.item-actions .increment,
+.item-actions .decrement {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}

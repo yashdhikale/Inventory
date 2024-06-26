@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/actions';
 import '../App.css';
 
-const AddItem = () => {
+const AddItem = ({onAdd}) => {
   const [itemName, setItemName] = useState('');
   const [itemQuantity, setItemQuantity] = useState('');
   const dispatch = useDispatch();
@@ -15,6 +15,9 @@ const AddItem = () => {
     dispatch(addItem({ id: Date.now(), name: itemName, quantity: parseInt(itemQuantity, 10) }));
     setItemName('');
     setItemQuantity('');
+    if (typeof onAdd === 'function') {
+      onAdd();
+    }
   };
 
   return (
